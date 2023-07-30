@@ -22,5 +22,13 @@ pipeline{
         }
 
         // Add the Release stage here
+stage('Release'){
+    steps{
+       sh '''
+          oc project bsck-greetings
+          oc start-build greetings-console --follow --wait
+          '''
+}
+}
     }
 }
